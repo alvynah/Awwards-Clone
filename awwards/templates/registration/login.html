@@ -1,8 +1,6 @@
 {%extends "awwards/base.html"%}{% block content %} {% load static %} {% load bootstrap4 %}
 <div class="card mb-4 ">
-    <div class="card-title mt-4">
-        <h1 class="text-center"><img src="/static/images/instagramClearbg.png" style="height:50px"></h1>
-    </div>
+
     <div class="card-body loginForm">
         <form action="{% url 'login' %}" method="post" novalidate>
             {% csrf_token%} {{ form}}

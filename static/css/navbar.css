@@ -85,3 +85,11 @@
                     .submitBtn {
                         background-color: #49c5b6
                     }
+                    
+                    .helptext {
+                        display: none;
+                    }
+                    
+                    ul.errorlist {
+                        color: red;
+                    }
