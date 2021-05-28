@@ -25,4 +25,10 @@ def signup_view(request):
     
 
 def welcome(request):
-   return render(request,'awwards/index.html') 
+    users = User.objects.exclude(id=request.user.id)
+    profiles=Profile.objects.all()
+    params={
+       'users':users,
+       'profiles':profiles,
+    }
+    return render(request,'awwards/index.html') 

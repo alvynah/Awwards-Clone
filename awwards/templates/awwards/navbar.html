@@ -54,10 +54,11 @@
         <div class="f-12 font-weight-bold mx-2 px-1  ml-auto text-white-50 d-flex">
             </a>
             <a class="nav-link text-white-50" href=" ">
-                <span class="">Profile</span>
+                <img src="{{user.profile.prof_pic.url}}" style="width:40px;height:40px;" alt="none" class="rounded-circle border ml-3 mt-2  mr-3">
+                <span>{{user.username}}</span>
+
             </a>
-            <img class="h-100 judge-btn" src="{{ user.profile.profile_pic.url }}" alt="">
-            </a>
+
         </div>
         <a class="f-12 font-weight-bold mx-2 px-1 ml-auto nav-link text-white-50" href="/logout">logout</a> {% else %}
         <a href="{%url 'login' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">REGISTER/LOGIN</a>{%endif%}
