@@ -77,3 +77,11 @@
                     .box-right2 {
                         float: right;
                     }
+                    
+                    #header-top a {
+                        color: black;
+                    }
+                    
+                    .submitBtn {
+                        background-color: #49c5b6
+                    }
