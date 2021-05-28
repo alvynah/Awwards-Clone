@@ -50,7 +50,17 @@
             </a>
 
         </div>
-        <a href="{%url 'login' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">REGISTER/LOGIN</a>
+        {% if user.is_authenticated %}
+        <div class="f-12 font-weight-bold mx-2 px-1  ml-auto text-white-50 d-flex">
+            </a>
+            <a class="nav-link text-white-50" href=" ">
+                <span class="">Profile</span>
+            </a>
+            <img class="h-100 judge-btn" src="{{ user.profile.profile_pic.url }}" alt="">
+            </a>
+        </div>
+        <a class="f-12 font-weight-bold mx-2 px-1 ml-auto nav-link text-white-50" href="/logout">logout</a> {% else %}
+        <a href="{%url 'login' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">REGISTER/LOGIN</a>{%endif%}
         <a href="" class="f-12 font-weight-bold px-4 h-100 btn d-flex align-items-center text-light submitBtn">SUBMIT YOUR SITE!</a>
 
     </div>
