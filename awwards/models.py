@@ -13,7 +13,7 @@ class Profile(models.Model):
     bio=models.TextField()
     location=models.CharField(max_length=100)
     email=models.EmailField()
-    url=models.URLField()
+    account_url=models.URLField()
 
     def __str__(self):
         return f'{self.user.username} Profile'
@@ -43,7 +43,7 @@ class Project(models.Model):
     title=models.CharField(max_length=50)
     description=models.TextField()
     project_image=models.ImageField(upload_to='projects/')
-    url=models.URLField()
+    project_url=models.URLField()
     pub_date=models.DateTimeField(auto_now_add=True)
     user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='project')
     technologies = models.CharField(max_length=200, blank=True)
@@ -65,4 +65,9 @@ class Project(models.Model):
     def all_projects(cls):
         return cls.objects.all()
 
+    class Meta:
+        '''
+        Class method to display images by date published
+        '''
+        ordering = ["-pk"]
 

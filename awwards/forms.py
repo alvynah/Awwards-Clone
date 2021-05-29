@@ -9,3 +9,9 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1','password2')
+
+class UploadProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ('title','description','project_image','project_url','technologies')
+    

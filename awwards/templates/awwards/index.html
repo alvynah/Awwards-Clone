@@ -1,4 +1,74 @@
-{% extends 'awwards/base.html' %} {% block content %}{{block.super}}
+{% extends 'awwards/base.html' %}{%load crispy_forms_tags%} {% block content %}{{block.super}}
 
-<h1>geng geng</h1>
+<div class="row index">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+        <div class="row" style="background-color:white;">
+            {% if user.is_authenticated %}
+            <div class="modal fade" id="imageUpload" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Project Upload</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body uploadForm">
+                            <form action="" method="post" enctype="multipart/form-data" novalidate>
+                                {% csrf_token %} {{ form|crispy }}
+                                <button class="btn btn-sm btn-success">Upload</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%else%}
+            <div class="modal fade" id="imageUpload" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h5 id="exampleModalLongTitle">Login is required for this action</h5>
+                            <a href="{%url 'login' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">REGISTER/LOGIN</a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {%endif%}
+
+
+
+        </div>
+        <div class="row mt-5">
+
+
+            {%for post in projects%}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <img src="{{post.user.profile.prof_pic.url}}" class="rounded-circle border ml-3 mt-2  mr-3" alt="{{prof_pic.user.user.username}}" width="35" height="35">
+                    <a href="" class="mt-4 user"><span
+                            style="color:black;font-weight:bold"> {{post.user.username|title}}</span></a>
+                    <p class="text-muted ml-5 mr-3" style="font-style: italic;">#{{post.title}}</p>
+                </div>
+                <div class="card-body">
+                    <img src="{{post.project_image.url}}" class="card-img" style="width:100%;height:600px;">
+                    <p class="text-muted text-center">{{post.description}}<br><span style="font-size:7px;"> Posted:
+                            {{post.pub_date}}</span><br>
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+            {%endfor%}
+
+        </div>
+    </div>
+</div>
 {%endblock%}
