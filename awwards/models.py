@@ -38,3 +38,31 @@ class Profile(models.Model):
         return cls.objects.filter(user__username__icontains=search_term).all()
     def __str__(self):
         return f'{self.user.username} Profile'
+
+class Project(models.Model):
+    title=models.CharField(max_length=50)
+    description=models.TextField()
+    project_image=models.ImageField(upload_to='projects/')
+    url=models.URLField()
+    pub_date=models.DateTimeField(auto_now_add=True)
+    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='project')
+    technologies = models.CharField(max_length=200, blank=True)
+
+    def __str__(self):
+        return self.title
+
+    def save_project(self):
+        self.save()
+
+    def delete_project(self):
+        self.delete()
+
+    @classmethod
+    def search_project(cls,title):
+        return cls.objects.filter(title__icontains=title).all()
+
+    @classmethod
+    def all_projects(cls):
+        return cls.objects.all()
+
+
