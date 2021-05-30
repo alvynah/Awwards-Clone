@@ -68,3 +68,8 @@ class RateTest(TestCase):
         self.rate.save_rating()
         rates=Rate.objects.all()
         self.assertTrue(len(rates)==1)
+    def test_delete_rates(self):
+        self.rate.save_rating()
+        self.rate.delete_rating()
+        rates = Rate.objects.all()
+        self.assertTrue(len(rates)==0)
