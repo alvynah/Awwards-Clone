@@ -9,6 +9,8 @@ urlpatterns = [
     path('',views.welcome,name='welcome'),
     path('review/<project_title>', views.rate_project, name='rate'),
     re_path(r'^search/', views.search_project,name='search_results'),
+    path('profile/<username>/', views.profile, name='profile'),
+
 
 
 ]

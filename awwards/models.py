@@ -12,7 +12,6 @@ class Profile(models.Model):
     name=models.CharField(max_length=50)
     bio=models.TextField()
     location=models.CharField(max_length=100)
-    email=models.EmailField()
     account_url=models.URLField()
 
     def __str__(self):

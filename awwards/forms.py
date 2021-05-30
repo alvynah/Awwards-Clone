@@ -18,4 +18,15 @@ class UploadProjectForm(forms.ModelForm):
 class RateForm(forms.ModelForm):
     class Meta:
         model = Rate
-        fields=['design','content','usability']  
+        fields=['design','content','usability'] 
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+
+    class Meta:
+        model = User
+        fields = ('username', 'email')  
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('name',  'bio', 'location', 'account_url' ,'prof_pic')

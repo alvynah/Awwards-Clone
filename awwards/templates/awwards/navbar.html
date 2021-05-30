@@ -53,16 +53,16 @@
         {% if user.is_authenticated %}
         <div class="f-12 font-weight-bold mx-2 px-1  ml-auto text-white-50 d-flex">
             </a>
-            <a class="nav-link text-white-50" href=" ">
+            <a class="nav-link text-white-50" href=" {%url 'profile' user.username %}">
                 <img src="{{user.profile.prof_pic.url}}" style="width:40px;height:40px;" alt="none" class="rounded-circle border ml-3 mt-2  mr-3">
                 <span>{{user.username}}</span>
 
             </a>
 
         </div>
-        <a class="f-12 font-weight-bold mx-2 px-1 ml-auto nav-link text-white-50" href="/logout">logout</a> {% else %}
+        {%else%}
         <a href="{%url 'login' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">REGISTER/LOGIN</a>{%endif%}
-        <a href="" class="f-12 font-weight-bold px-4 h-100 btn d-flex align-items-center text-light submitBtn" data-toggle="modal" data-target="#imageUpload">SUBMIT YOUR SITE!</a>
+        <span class="f-12 font-weight-bold px-4 h-100 btn d-flex align-items-center text-light submitBtn" data-toggle="modal" data-target="#imageUpload">SUBMIT YOUR SITE!</span>
 
     </div>
 </header>

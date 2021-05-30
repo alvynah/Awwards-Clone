@@ -35,7 +35,7 @@ def welcome(request):
          form=UploadProjectForm(request.POST, request.FILES)
          if form.is_valid():
                project=form.save(commit=False)
-               project.user=request.user.profile
+               project.user=request.user
                project.save()
                return HttpResponseRedirect(request.path_info)
    else:
@@ -113,7 +113,38 @@ def search_project(request):
        else:
         message = "You haven't searched for any project"
        return render(request, 'awwards/search_results.html', {'message': message})
-              
+def profile(request, username):
+   current_user = request.user.profile
+
+   profile=Profile.objects.get(user=current_user.user)
+   projects=request.user.project.all()
+   if request.method == 'POST':
+      user_form = UserUpdateForm(request.POST, instance=request.user)
+      profile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.profile)
+      if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save(commit=False)
+            user.profile=profile
+            user.profile = request.user.profile
+            user.save()
+
+            prof = profile_form.save(commit=False)
+            prof.profile=profile
+            prof.profile = request.user.profile
+            prof.save() 
+
+
+            return HttpResponseRedirect(request.path_info)
+   else:
+      user_form = UserUpdateForm(instance=request.user)
+      profile_form = UserProfileForm(instance=request.user.profile)
+   params = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'projects': projects,
+
+    }
+   return render(request, 'awwards/profile.html', params)
+
          
 
 
