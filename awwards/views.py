@@ -104,6 +104,16 @@ def rate_project(request,project_title):
       'ratings':ratings,
    }
    return render(request,'awwards/voteproject.html',params)
+def search_project(request):
+       if 'search_project' in request.GET and request.GET["search_project"]:
+         title = request.GET.get("search_project")
+         searched_projects = Project.search_project(title)
+         message = f"{title}"
+         return render(request, 'awwards/search_results.html', {'message':message,'results': searched_projects})
+       else:
+        message = "You haven't searched for any project"
+       return render(request, 'awwards/search_results.html', {'message': message})
+              
          
 
 
