@@ -65,13 +65,18 @@ class Project(models.Model):
     def all_projects(cls):
         return cls.objects.all()
 
+    @classmethod
+    def get_project_by_id(cls,id):
+        project=Project.objects.filter(id=id)
+        return project
+
     class Meta:
         '''
         Class method to display images by date published
         '''
         ordering = ["-pk"]
 
-class Rate:
+class Rate(models.Model):
     RATING_CHOICES=(
         (1,'1'),
         (2,'2'),
@@ -91,6 +96,7 @@ class Rate:
     design_average=models.DecimalField(default=0,max_digits=40,decimal_places=2)
     usability_average=models.DecimalField(default=0,max_digits=40,decimal_places=2)
     content_average=models.DecimalField(default=0,max_digits=40,decimal_places=2)
+    score=models.DecimalField(default=0,max_digits=40,decimal_places=2)
     user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='rate')
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='ratings')
     rated_at=models.DateTimeField(auto_now_add=True)

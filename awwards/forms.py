@@ -14,4 +14,8 @@ class UploadProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = ('title','description','project_image','project_url','technologies')
-    
+
+class RateForm(forms.ModelForm):
+    class Meta:
+        model = Rate
+        fields=['design','content','usability']  
