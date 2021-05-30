@@ -42,10 +42,25 @@ class ProjectTestClass(TestCase):
         self.project.save_project()
         projects = Project.objects.all()
         self.assertTrue(len(projects)>0)
-         
+
     def test_delete_method(self):
         self.project.save_project()
         projects = Project.objects.all()
         self.project.delete_project()
         projects = Project.objects.all()
         self.assertTrue(len(projects)==0)
+
+class RateTest(TestCase):
+    def setUp(self):
+        self.user=User(username='alvynah')
+        self.user.save()
+        self.project=Project(title='Test title',description='test description', project_image='test.png', project_url='project.com',technologies="php",user=self.user)
+        self.project.save()
+        self.rate=Rate(design='9',usability='10',content='9',user=self.user,project=self.project)
+        self.rate.save_rating() 
+    def tearDown(self):
+        Rate.objects.all().delete()
+        Project.objects.all().delete()
+        User.objects.all().delete()
+    def test_instance(self):
+        self.assertTrue(isinstance(self.rate,Rate)) 
