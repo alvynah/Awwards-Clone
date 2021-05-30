@@ -64,3 +64,7 @@ class RateTest(TestCase):
         User.objects.all().delete()
     def test_instance(self):
         self.assertTrue(isinstance(self.rate,Rate)) 
+    def test_save_rates(self):
+        self.rate.save_rating()
+        rates=Rate.objects.all()
+        self.assertTrue(len(rates)==1)
