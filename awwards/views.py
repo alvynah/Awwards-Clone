@@ -50,9 +50,10 @@ def welcome(request):
     }
    return render(request,'awwards/index.html',params)
 
-def rate_project(request,project_id):
-   project=Project.get_project_by_id(id=project_id)
+def rate_project(request,project_title):
+   project=Project.objects.get(title=project_title)
    rates=Rate.objects.filter(user=request.user,project=project).first()
+   ratings=Rate.objects.order_by('-rated_at')
    rates_status=None
    if rates is None:
           rates_status = False
@@ -68,13 +69,14 @@ def rate_project(request,project_id):
                rate.save()
                project_ratings=Rate.objects.filter(project=project)
 
-               design = form.cleaned_data.get['design']
-               usability = form.cleaned_data.get['design']
-               content = form.cleaned_data.get['design']
+               design = form.cleaned_data['design']
+               usability = form.cleaned_data['usability']
+               content = form.cleaned_data['content']
                rate.design = design
                rate.usability = usability
                rate.content = content
                rate.average = (rate.design + rate.usability + rate.content)/3
+               rate.save()
 
                design_ratings = [d.design for d in project_ratings]
                design_average = sum(design_ratings) / len(design_ratings)
@@ -99,8 +101,9 @@ def rate_project(request,project_id):
       'project':project,
       'rates_status':rates_status,
       'rating_form':form,
+      'ratings':ratings,
    }
-   return render(request,'voteproject.html',params)
+   return render(request,'awwards/voteproject.html',params)
          
 
 

@@ -47,6 +47,7 @@ class Project(models.Model):
     pub_date=models.DateTimeField(auto_now_add=True)
     user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='project')
     technologies = models.CharField(max_length=200, blank=True)
+    
 
     def __str__(self):
         return self.title
@@ -86,7 +87,7 @@ class Rate(models.Model):
         (6,'6'),
         (7,'7'),
         (8,'8'),
-        (8,'9'),
+        (9,'9'),
         (10,'10'),
     )
     design =models.IntegerField(choices=RATING_CHOICES,default=0,blank=False)
@@ -111,6 +112,6 @@ class Rate(models.Model):
         return ratings
 
     def __str__(self):
-        return f'{self.post} Rate'
+        return f'{self.project} Rate'
 
 
