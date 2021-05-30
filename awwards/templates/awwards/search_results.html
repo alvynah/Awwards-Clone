@@ -2,7 +2,7 @@
 <div class="container" style="margin-top:7%">
     <div class="row">
         {% if results %}
-        <h5>Found {{results|length}} projects</h5>
+        <h5>Found {{results.count}} project{{results.count|pluralize}}</h5>
         <div class="templates display">
 
 
