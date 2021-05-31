@@ -59,7 +59,8 @@ body {
     color: red;
 }
 
-.cardsIndex {
+.cardsIndex,
+.searchCards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -70,14 +71,15 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.card-img1 {
+.card-img1,
+.card-img2 {
     opacity: 1;
     display: block;
     transition: .5s ease;
     backface-visibility: hidden;
 }
 
-#overlay {
+.overlay {
     transition: .5s ease;
     opacity: 0;
     position: absolute;
@@ -86,13 +88,115 @@ body {
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.projectImage:hover .card-img1 {
+.projectImage:hover .card-img1,
+.projectImage:hover .card-img2 {
     opacity: 0.3;
     transform: scale(1.03) !important;
 }
 
-.projectImage:hover #overlay {
+.projectImage:hover .overlay {
     opacity: 1;
+}
+
+th {
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    font-style: italic;
+    border-bottom: 2px solid black;
+}
+
+tr {
+    border-bottom: 2px solid black;
+}
+
+.table {
+    background-image: url(/static/images/loginwallpaper.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+table {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+
+#design {
+    color: white;
+    border: 3px solid #00C851!important;
+    border-radius: 50%;
+    height: 100px;
+    width: 150px;
+    padding: 20px;
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
+#usable {
+    color: white;
+    border: 3px solid #4285F4!important;
+    border-radius: 50%;
+    padding: 20px;
+    height: 100px;
+    width: 150px;
+    margin-right: 10px;
+}
+
+#contente {
+    color: white;
+    border: 3px solid orange;
+    border-radius: 50%;
+    height: 100px;
+    width: 150px;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+#averagemax {
+    color: white;
+    border: 3px solid #33b5e5;
+    border-radius: 50%;
+    height: 100px;
+    width: 150px;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.rates {
+    font-size: 12px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.rateForm form {
+    margin-top: 5%;
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: transparent;
+    box-shadow: 0 0 20px 0 #49c5b6;
+    float: center;
+    margin-bottom: 2%;
+    align-items: center;
+    font-size: 16px;
+    font-style: bold;
+}
+
+.rateForm label {
+    margin-left: 10%;
+}
+
+.rateForm select {
+    border: 2px;
+    background-color: transparent;
+    margin-left: 5px;
+}
+
+.rateForm .btn {
+    margin-left: 10%;
 }
