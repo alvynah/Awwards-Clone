@@ -56,8 +56,9 @@ header {
 
 #searchform input {
     padding-top: 2%;
-    border-left: none;
+    border-left: none !important;
     border-top: none !important;
+    border-bottom: 2px solid black !important;
 }
 
 .searchForm {

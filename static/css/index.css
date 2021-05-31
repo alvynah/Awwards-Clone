@@ -90,6 +90,7 @@ body {
 
 .projectImage:hover .card-img1 {
     opacity: 0.3;
+    transform: scale(1.03) !important;
 }
 
 .projectImage:hover #overlay {
