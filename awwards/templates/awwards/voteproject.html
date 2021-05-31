@@ -42,6 +42,18 @@
                     {{project.user.profile.location|title}} </span> {%else%} Unefined </span>{%endif%}
                             <span style="float:right;"> <strong>Uploaded On</strong> : {{project.pub_date|date}}</span>
                         </div>
+                        <div class="card-footer" style="background-color:transparent;">
+                            <div>
+                                <a href="{% url 'user_profile' project.user.username  %}">
+                                    <img src="{{project.user.profile.prof_pic.url}}" class="rounded-circle border ml-3 mt-2  mr-3" alt="{{prof_pic.user.user.username}}" width="35" height="35">
+                                    <span style="color:black;font-weight:bold">By: {{project.user.username|title}}</span>
+                                </a>
+                                <span style="float:right"><strong>Technologies</strong>: {{project.technologies}}</span>
+
+
+                            </div>
+                        </div>
+
                         <hr>
                         <div>
                             <h3 class="text-center">Ratings Scores</h3>
@@ -99,7 +111,9 @@
                         {% for review in ratings %} {% if project.id == review.project.id %}
                         <tr>
                             <td>
-                                <div class="col-md-2"> <img src="{{review.user.profile.prof_pic.url}}" style="height:50px;width:50px;border-radius:50%"> </div>
+                                <a href="{% url 'user_profile' review.user.username  %}">
+                                    <div class="col-md-2"> <img src="{{review.user.profile.prof_pic.url}}" style="height:50px;width:50px;border-radius:50%"> </div>
+                                </a>
 
                             </td>
                             <td>
