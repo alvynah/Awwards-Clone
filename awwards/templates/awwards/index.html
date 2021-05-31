@@ -1,65 +1,67 @@
-<div id="header-top">
-    <div class="box-left">
-        <div class="item">
-            <span class="h5 mb-o">
-                <div id="english"><u>ENGLISH</u></div>
+<div id="main">
+    <div id="header-top">
+        <div class="box-left">
+            <div class="item">
+                <span class="h6 mb-o">
+                <div id="english" class="text-muted"><u>ENGLISH</u></div>
             </span>
+            </div>
         </div>
-    </div>
-    <div class="box-center">
+        <div class="box-center">
 
-        <p class="slogan">The awards of design, creativity and innovation on the internet</p>
+            <p class="slogan">The awards of design, creativity and innovation on the internet</p>
 
-    </div>
-    <div class="box-right">
-        <span class="pull-right icons">
+        </div>
+        <div class="box-right">
+            <span class="pull-right icons">
             <i class="fa fa-instagram" aria-hidden="true"></i>
             <i class="fa fa-twitter" aria-hidden="true"></i>
             <i class="fa fa-facebook" aria-hidden="true"></i>
         </span>
-    </div>
-
-</div>
-{% extends 'awwards/base.html' %}{%load crispy_forms_tags%} {% block content %}{{block.super}}
-
-<div class="row index">
-    <div class="col-md-1"></div>
-    <div class="col-md-6">
-        <div class="row" style="background-color:white;">
-
-
         </div>
-        <div class="row mt-5">
 
+    </div>
+    {% extends 'awwards/base.html' %}{%load crispy_forms_tags%} {% block content %}{{block.super}}
 
-            {%for post in projects%}
-            <div class="card mb-4">
-                <div class="card-header">
-                    <img src="{{post.user.profile.prof_pic.url}}" class="rounded-circle border ml-3 mt-2  mr-3" alt="{{prof_pic.user.user.username}}" width="35" height="35">
-                    <a href="" class="mt-4 user"><span
-                            style="color:black;font-weight:bold"> {{post.user.username|title}}</span></a>
-                    <p class="text-muted ml-5 mr-3" style="font-style: italic;">#{{post.title}}</p>
-                </div>
-                <div class="card-body">
-                    <img src="{{post.project_image.url}}" class="card-img" style="width:100%;height:600px;">
-                    <p class="text-muted text-center">{{post.description}}<br><span style="font-size:7px;"> Posted:
-                            {{post.pub_date}}</span><br>
-
-                    </p>
-
-
-                </div>
-                <div class="card-footer">
-                    <a href="{% url 'rate' project_title=post.title %}">
-                        <button class="mask rgba-white-slight"> Vote</button>
-                    </a>
-                </div>
+    <div class="row index">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <div class="row" style="background-color:white;">
 
 
             </div>
+            <div class="row mt-5">
 
-            {%endfor%}
 
+                {%for post in projects%}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <img src="{{post.user.profile.prof_pic.url}}" class="rounded-circle border ml-3 mt-2  mr-3" alt="{{prof_pic.user.user.username}}" width="35" height="35">
+                        <a href="" class="mt-4 user"><span
+                            style="color:black;font-weight:bold"> {{post.user.username|title}}</span></a>
+                        <p class="text-muted ml-5 mr-3" style="font-style: italic;">#{{post.title}}</p>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{post.project_image.url}}" class="card-img" style="width:100%;height:600px;">
+                        <p class="text-muted text-center">{{post.description}}<br><span style="font-size:7px;"> Posted:
+                            {{post.pub_date}}</span><br>
+
+                        </p>
+
+
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'rate' project_title=post.title %}">
+                            <button class="mask rgba-white-slight"> Vote</button>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                {%endfor%}
+
+            </div>
         </div>
     </div>
 </div>

@@ -54,6 +54,12 @@ header {
     font-style: bold;
 }
 
+#searchform input {
+    padding-top: 2%;
+    border-left: none;
+    border-top: none !important;
+}
+
 .searchForm {
     display: flex;
 }
@@ -70,7 +76,7 @@ header {
 }
 
 .box-center2 {
-    width: 50%;
+    width: 40%;
     text-align: center;
 }
 
@@ -101,7 +107,11 @@ ul.errorlist {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: whitesmoke;
+    background-image: url(/static/images/loginwallpaper.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;

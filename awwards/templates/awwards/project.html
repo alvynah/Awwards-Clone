@@ -1,22 +1,25 @@
-{% extends 'awwards/base.html' %}{%load crispy_forms_tags%} {% block content %}{{block.super}}
+<div id="main">
 
-<div class="container mt-4">
-    <div class="submission text-center">
-        <h1>Standard Submission</h1>
-        <p class="text-muted">Upload Project</p>
+    {% extends 'awwards/base.html' %}{%load crispy_forms_tags%} {% block content %}{{block.super}}
 
-        <hr>
-    </div>
-    <div class="uploadForm">
+    <div class="container mt-4">
+        <div class="submission text-center">
+            <h1>Standard Submission</h1>
+            <p class="text-muted">Upload Project</p>
 
-        <form action="{% url 'add_project' %}" method="post" enctype="multipart/form-data" novalidate>
-            {% csrf_token %} {{ form|crispy}}
-            <div class="text-center">
-                <button class="btn btn-sm btnUpload">Upload Project</button>
+            <hr>
+        </div>
+        <div class="uploadForm">
 
-            </div>
+            <form action="{% url 'add_project' %}" method="post" enctype="multipart/form-data" novalidate>
+                {% csrf_token %} {{ form|crispy}}
+                <div class="text-center">
+                    <button class="btn btn-sm btnUpload">Upload Project</button>
 
-        </form>
+                </div>
+
+            </form>
+        </div>
     </div>
 </div>
 {%endblock%}
