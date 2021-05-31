@@ -30,26 +30,28 @@ def welcome(request):
    users = User.objects.exclude(id=request.user.id)
    profiles=Profile.objects.all()
    projects=Project.objects.all()
-   
-   if request.method=='POST':
-         form=UploadProjectForm(request.POST, request.FILES)
-         if form.is_valid():
-               project=form.save(commit=False)
-               project.user=request.user
-               project.save()
-               return HttpResponseRedirect(request.path_info)
-   else:
-      form=UploadProjectForm()
-       
           
    params={
        'users':users,
        'profiles':profiles,
        'projects':projects,
-       'form':form,
     }
    return render(request,'awwards/index.html',params)
 
+@login_required
+def upload_project(request):
+      if request.method=='POST':
+         form=UploadProjectForm(request.POST, request.FILES)
+         if form.is_valid():
+            project=form.save(commit=False)
+            project.user=request.user
+            project.save()
+            return redirect('welcome')
+      else:
+         form=UploadProjectForm()
+      return render(request,'awwards/project.html',{'form':form})
+ 
+@login_required
 def rate_project(request,project_title):
    project=Project.objects.get(title=project_title)
    rates=Rate.objects.filter(user=request.user,project=project).first()
@@ -104,6 +106,8 @@ def rate_project(request,project_title):
       'ratings':ratings,
    }
    return render(request,'awwards/voteproject.html',params)
+
+@login_required
 def search_project(request):
        if 'search_project' in request.GET and request.GET["search_project"]:
          title = request.GET.get("search_project")
@@ -113,6 +117,7 @@ def search_project(request):
        else:
         message = "You haven't searched for any project"
        return render(request, 'awwards/search_results.html', {'message': message})
+
 def profile(request, username):
    current_user = request.user.profile
 

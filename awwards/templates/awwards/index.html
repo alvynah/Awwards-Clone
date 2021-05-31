@@ -1,44 +1,31 @@
+<div id="header-top">
+    <div class="box-left">
+        <div class="item">
+            <span class="h5 mb-o">
+                <div id="english"><u>ENGLISH</u></div>
+            </span>
+        </div>
+    </div>
+    <div class="box-center">
+
+        <p class="slogan">The awards of design, creativity and innovation on the internet</p>
+
+    </div>
+    <div class="box-right">
+        <span class="pull-right icons">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+        </span>
+    </div>
+
+</div>
 {% extends 'awwards/base.html' %}{%load crispy_forms_tags%} {% block content %}{{block.super}}
 
 <div class="row index">
     <div class="col-md-1"></div>
     <div class="col-md-6">
         <div class="row" style="background-color:white;">
-            {% if user.is_authenticated %}
-            <div class="modal fade" id="imageUpload" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Project Upload</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body uploadForm">
-                            <form action="" method="post" enctype="multipart/form-data" novalidate>
-                                {% csrf_token %} {{ form|crispy }}
-                                <button class="btn btn-sm btn-success">Upload</button>
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {%else%}
-            <div class="modal fade" id="imageUpload" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <h5 id="exampleModalLongTitle">Login is required for this action</h5>
-                            <a href="{%url 'login' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">REGISTER/LOGIN</a>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            {%endif%}
-
 
 
         </div>

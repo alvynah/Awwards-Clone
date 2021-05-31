@@ -1,26 +1,5 @@
 {%load static%}
-<div id="header-top">
-    <div class="box-left">
-        <div class="item">
-            <span class="h5 mb-o">
-                <div id="english"><u>ENGLISH</u></div>
-            </span>
-        </div>
-    </div>
-    <div class="box-center">
 
-        <p class="slogan">The awards of design, creativity and innovation on the internet</p>
-
-    </div>
-    <div class="box-right">
-        <span class="pull-right icons">
-        <i class="fa fa-instagram" aria-hidden="true"></i>
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-        <i class="fa fa-facebook" aria-hidden="true"></i>
-    </span>
-    </div>
-
-</div>
 
 <header id="header">
 
@@ -62,7 +41,7 @@
         </div>
         {%else%}
         <a href="{%url 'login' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">REGISTER/LOGIN</a>{%endif%}
-        <span class="f-12 font-weight-bold px-4 h-100 btn d-flex align-items-center text-light submitBtn" data-toggle="modal" data-target="#imageUpload">SUBMIT YOUR SITE!</span>
+        <a href="{% url 'add_project' %}" class="f-12 font-weight-bold px-4 h-100 btn d-flex align-items-center text-light submitBtn">SUBMIT YOUR SITE!</a>
 
     </div>
 </header>
