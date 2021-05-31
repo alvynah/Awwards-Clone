@@ -2,9 +2,10 @@
 
     {% extends 'awwards/base.html' %} {% load crispy_forms_tags %} {% block content %}
     <div class="container" style="margin-top:8%">
-        <h5 class="mb-4 mt-4">{{project.title}} by {{project.user.username}} <span id="heart"> <i class="fas fa-heart"></i></span></h5>
 
         <div class="card">
+            <h5 class="mr-2 ml-2 mt-2 mb-2">{{project.title}} by {{project.user.username}} <span style="float:right;"> <i class="fas fa-heart"></i></span></h5>
+
             <div class="view" style="background-image:url({{project.project_image.url}})">
                 <img class="card-img-top" style="visibility:hidden" width="100%" src="{{ project.project_image.url }}-/crop/1440x720/center/-/quality/lightest/" alt="{{project.title}}">
                 <a href="">
