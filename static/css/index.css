@@ -1,6 +1,48 @@
+html,
 body {
     scroll-behavior: smooth;
     font-family: 'Open Sans', sans-serif;
     background-color: whitesmoke;
     font-size: 14px;
+}
+
+.loginForm form {
+    margin-top: 5%;
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: transparent;
+    box-shadow: 0 0 20px 0 #49c5b6;
+    float: center;
+    margin-bottom: 2%;
+    align-items: center;
+    font-size: 16px;
+    font-style: bold;
+}
+
+.loginForm label {
+    font-style: italic;
+}
+
+.loginForm input {
+    border: 1px solid #bdbdbd !important;
+    border-radius: 5px;
+}
+
+.loginForm input:hover {
+    box-shadow: 0 0 6px 0 #49c5b6;
+}
+
+.loginForm input:focus {
+    box-shadow: 0 0 6px 0 #49c5b6 !important;
+}
+
+.loginForm .btn {
+    background-color: #49c5b6;
+    padding: 20px !important;
+}
+
+.loginForm .help-block {
+    color: red;
+    text-align: center;
 }
