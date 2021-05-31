@@ -6,6 +6,14 @@ body {
     font-size: 14px;
 }
 
+.login {
+    background-image: url(/static/images/loginwallpaper.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .loginForm form {
     margin-top: 5%;
     width: 100%;
