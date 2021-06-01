@@ -33,7 +33,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = 'AwwardsJet.herokuapp.com'
+ALLOWED_HOSTS = 'awwardsjet.herokuapp.com'
 
 
 # Application definition
