@@ -213,6 +213,10 @@ table {
     background-attachment: fixed;
 }
 
+.mostRated a {
+    color: white;
+}
+
 .overlay2 {
     transition: .5s ease;
     opacity: 1;

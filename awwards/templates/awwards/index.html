@@ -51,8 +51,8 @@
 
                 </div>
                 <div class="visitDetails">
-                    <span style="float:left;" class="btn"> Visit Site </span>
-                    <span style="float:right;font-size:25px;font-weight:900;">{{ratings.count}} Vote{{ratings.count|pluralize}}</span>
+                    <a href="{{project_average.project.project_url}}" target="_blank"><span style="float:left;" class="btn"> Visit Site </span></a>
+                    <span style="float:right;font-size:25px;font-weight:900;">{{project_average.project.ratings.count}} Vote{{ratings.count|pluralize}}</span>
                 </div>
 
 
