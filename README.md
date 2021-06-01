@@ -56,7 +56,7 @@ This is a Django web application. It is a website where users get to rate projec
 
 ## Live Link
 
-[awwardsjet](https://awwardsjet.herokuapp.com/signup/)
+[awwardsjet](https://awwardsjet.herokuapp.com/)
 ## User Story
 
 1. View posted projects and their details.
