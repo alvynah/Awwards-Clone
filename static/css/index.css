@@ -201,3 +201,38 @@ table {
 .rateForm .btn {
     margin-left: 10%;
 }
+
+.mostRated {
+    background-color: black;
+    color: white;
+    font-weight: 900;
+    height: 70vh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.overlay2 {
+    transition: .5s ease;
+    opacity: 1;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.visitDetails {
+    margin-top: 20%;
+}
+
+.visitDetails .btn {
+    background-color: #49c5b6;
+    padding: 10px !important;
+    border-radius: 4px;
+    width: 20%;
+}

@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 from .models import *
 from django.http import HttpResponseRedirect
+from django.db.models import Max
+
 
 
 # Create your views here.
@@ -30,11 +32,17 @@ def welcome(request):
    users = User.objects.exclude(id=request.user.id)
    profiles=Profile.objects.all()
    projects=Project.objects.all()
+   project_average=Rate.objects.order_by('-score').first()
+   ratings=Rate.objects.all()
+ 
+
           
    params={
        'users':users,
        'profiles':profiles,
        'projects':projects,
+       'project_average':project_average,
+       'ratings':ratings,
     }
    return render(request,'awwards/index.html',params)
 

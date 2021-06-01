@@ -22,11 +22,53 @@
 
     </div>
     {% extends 'awwards/base.html' %}{%load crispy_forms_tags%} {% block content %}{{block.super}}
+    <a href="{% url 'rate' project_title=project_average.project.title%}">
+        <div class="mostRated" style="margin-top:5%;background-image:url({{project_average.project.project_image.url}});">
+            <div class="container mostRatedDetails">
+                <div class="trending">
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:25px;"><strong>Highest rated: </strong>{{project_average.rated_at|date}}</p>
+                </div>
+                <div class="details text-center">
+                    <p><span style="font-size :30px;"><strong>{{project_average.project.title|upper}}</strong></span><br> BY <strong>{{project_average.project.user.username|upper}}</strong> FROM <strong>{%if project_average.project.user.profile.location %} {{project_average.project.user.profile.location|upper}}
+                        {%else%} UNDEFINED{%endif%}</strong> WITH {{project_average.score}}</p>
+                </div>
+                <div class="overlay2">
+                    <div id="design">{{ project_average.design_average}}<br>
+                        <span class="rates">design_average</span>
+                    </div>
+                    <div id="usable" class="mx-auto">{{ project_average.usability_average }}<br>
+                        <span class="rates">usability_average</span>
+                    </div>
+                    <div id="contente">{{ project_average.content_average }}<br>
+                        <span class="rates">content_average</span>
+                    </div>
+                    <div id="averagemax">{{ project_average.score }}<br>
+                        <span class="rates">Average</span>
+                    </div>
 
-    <div class="container index " style="margin-top:8%;">
+                </div>
+                <div class="visitDetails">
+                    <span style="float:left;" class="btn"> Visit Site </span>
+                    <span style="float:right;font-size:25px;font-weight:900;">{{ratings.count}} Vote{{ratings.count|pluralize}}</span>
+                </div>
 
 
-        <div class=" mt-5 cardsIndex">
+            </div>
+
+        </div>
+    </a>
+
+
+    <div class="container index ">
+        <div class="submission mt-5">
+            <h1>Nominees for Today</h1>
+            <hr>
+        </div>
+
+        <div class="cardsIndex">
 
 
             {%for post in projects%}
