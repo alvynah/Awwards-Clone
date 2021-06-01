@@ -217,6 +217,16 @@ table {
     color: white;
 }
 
+.mostRatedDetails {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    right: 0 !important;
+    width: 100%;
+    left: 20px;
+    padding-bottom: 1% !important;
+    border-radius: 20px;
+}
+
 .overlay2 {
     transition: .5s ease;
     opacity: 1;
