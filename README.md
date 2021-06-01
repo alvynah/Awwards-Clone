@@ -10,41 +10,45 @@ This is a Django web application. It is a website where users get to rate projec
 ## Screenshot
 1. Log in and Sign up page
 
-    ![image](./static/images/signup.png)
+    ![image](./static/images/signup.jpg)
 
 
-    ![image](./static/images/login.png)
+    ![image](./static/images/login.jpg)
 
 
 2. Landing page
 
-    ![image](./static/images/landingpage1.png)
+    ![image](./static/images/landingpage.jpg)
 
-    ![image](./static/images/landingpage2.png)
 
 3. Nominees for voting 
 
-    ![image](./static/images/searchNaomi.png)
+    ![image](./static/images/nominees.jpg)
+
+    ![image](./static/images/nominees2.jpg)
     
 
-4. Voting Page
+4. Profile Page
     * Own profile
 
-    ![image](./static/images/profileUser.png)
+    ![image](./static/images/profile.jpg)
 
     * Other users Profile
 
-    ![image](./static/images/profileother.png)
+    ![image](./static/images/userprofile.jpg)
  
 
 5. Search project
 
-    ![image](./static/images/comment.png)
+    ![image](./static/images/search.jpg)
 
 
-6. Profile page and user_profile page
+6. Vote page 
 
-    ![image](./static/images/comment.png)
+    ![image](./static/images/votepage1.jpg)
+
+
+    ![image](./static/images/votepage2.jpg)
     
 
 
@@ -52,6 +56,7 @@ This is a Django web application. It is a website where users get to rate projec
 
 ## Live Link
 
+[awwardsjet](https://awwardsjet.herokuapp.com/signup/)
 ## User Story
 
 1. View posted projects and their details.
